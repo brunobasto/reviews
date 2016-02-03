@@ -1,0 +1,38 @@
+.carousel-container {
+	position: relative;
+
+	.container {
+		bottom: 100px;
+		left: 0;
+		position: absolute;
+		right: 0;
+	}
+
+	.sell-btn {
+		position: absolute;
+		right: 0;
+	}
+}
+
+#mainCarousel {
+	.carousel-inner .item.active .carousel-caption {
+		bottom: 0;
+		padding-bottom: 10px;
+
+		@-webkit-keyframes carouselCaptionSlide {
+			100% { left: 20%; }
+		}
+
+		@keyframes carouselCaptionSlide {
+			100% { left: 10%; }
+		}
+
+		.body, .headline {
+			color: #FFF;
+		}
+
+		.headline {
+			margin-bottom: 5px;
+		}
+	}
+}

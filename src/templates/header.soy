@@ -1,0 +1,29 @@
+{namespace employee_reviews}
+
+/**
+ *
+ * Header
+ *
+ */
+{template .header}
+<header data-offset-top="500" data-stuck="600">
+	<div class="menu-toggle"><i class="fa fa-list"></i></div>
+
+	<div class="container">
+		<a class="logo" href="/">
+			{call employee_reviews.brand /}
+		</a>
+	</div>
+
+	{call employee_reviews.navigation_menu data="all" /}
+
+	<div class="toolbar-container">
+		<div class="container">
+			<div class="toolbar group">
+				<a class="login-btn btn-outlined-invert" href="javascript:;" data-toggle="modal" data-target="#loginModal"><i class="icon-profile"></i> <span><b>L</b>ogin</span></a>
+				<a class="btn-outlined-invert" href="wishlist.html"><i class="icon-heart"></i> <span><b>D</b>esejos</span></a>
+			</div>
+		</div>
+	</div>
+</header>
+{/template}

@@ -1,0 +1,11 @@
+/       					actions.HomeAction#get
+
+/favicon.ico 				public/favicon.ico
+
+/static 					public
+/templates 					templates
+
+/employee/add               actions.EmployeeFormAction#get
+
+/json/cep/${cep}            actions.GetCEPAction#get
+/json/states/${country}     actions.GetStatesAction#get

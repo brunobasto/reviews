@@ -1,0 +1,106 @@
+{namespace employee_reviews}
+
+/**
+ *
+ * Employee Page
+ *
+ */
+{template .employee_form}
+<section class="section-header">
+	<div class="container">
+		<h1>Add an employee</h1>
+
+		<p>Please fill out all the required fields.</p>
+	</div>
+</section>
+
+{call employee_reviews.employee_form_contents data="all" /}
+
+<script src="/static/bower/dropzone/dist/dropzone.js"></script>
+<script src="/static/bower/jquery-maskmoney/dist/jquery.maskMoney.js"></script>
+<script src="/static/bower/steel-components/build/globals/steel-min.js"></script>
+
+<script src="/templates/sell.soy.js"></script>
+<script src="/static/scripts/es6.js"></script>
+
+<script src="/static/scripts/api-min.js"></script>
+<script src="/static/scripts/socket.js"></script>
+
+<script type="text/javascript">
+	{literal}
+		window.employeeForm = new site.EmployeeForm({
+			form: '#employeeForm',
+			uploadContainer: '#uploadContainer'
+		}).render();
+
+		// $('#price').maskMoney({
+		// 	decimal: ',',
+		// 	prefix: 'R$ ',
+		// 	thousands: '.'
+		// });
+
+		// $('#weight').maskMoney({
+		// 	decimal: ',',
+		// 	thousands: '.'
+		// });
+
+		window.destroyPage = function() {
+			employeeForm.detach();
+		};
+	{/literal}
+</script>
+{/template}
+
+/**
+ *
+ * Employee Page Form
+ *
+ */
+{template .employee_form_contents}
+<form action="/employee/add_action" id="employeeForm" method="POST" role="form">
+	<div class="container sell-container">
+		<ul class="multi-step-progress-bar multi-step-progress-bar-collapse">
+			<li class="active">
+				<div class="progress-bar-title">Employee Information</div>
+				<div class="divider"></div>
+				<div class="progress-bar-step">1</div>
+			</li>
+		</ul>
+
+		<div class="pages">
+			<div class="active page row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="title">Name</label>
+
+						<div class="input-group">
+							<input type="text" class="form-control" name="name" id="name" placeholder="Ex.: Brian Chan" required="">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="description">Comments</label>
+
+						<div class="input-group">
+							<textarea name="description" id="description" class="form-control" rows="5" required=""></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 upload-col">
+					<div class="dropzone upload-group" id="uploadContainer">
+						<p class="add">Add pictures</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container controls">
+		<button type="submit" class="btn btn-primary pull-right submit">
+			Save
+		</button>
+	</div>
+</form>
+{/template}

@@ -1,0 +1,76 @@
+{namespace employee_reviews}
+
+/**
+ * Main Template
+ *
+ * @param page
+ * @param title
+ *
+ */
+{template .index}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="author" content="Bruno Basto">
+	<meta name="description" content="{$title|noAutoescape}">
+
+	<meta property="og:title" content="{$title|noAutoescape}">
+	<meta property="og:description" content="{$title|noAutoescape}">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{$title|noAutoescape}</title>
+
+	<link rel="stylesheet" href="/static/bower/dropzone/dist/dropzone.css">
+	<link rel="stylesheet" href="/static/bower/kite-carousel/build/carousel.css" />
+	<link rel="stylesheet" href="/static/bower/senna/build/senna.css" />
+	<link rel="stylesheet" href="/static/styles/atlas-font-awesome.css" />
+	<link rel="stylesheet" href="/static/styles/main.css" />
+
+	<script src="/static/bower/jquery/dist/jquery.min.js"></script>
+	<script src="/static/bower/soyutils/soyutils.min.js"></script>
+	<script src="/static/bower/senna/build/senna-min.js"></script>
+</head>
+<body>
+	{call employee_reviews.header data="all" /}
+
+	<div class="page-content" id="content">
+		<div id="content-default">
+			{if $page == 'employee_form'}
+				{call employee_reviews.employee_form data="all" /}
+			{else}
+				{call employee_reviews.home data="all" /}
+			{/if}
+		</div>
+	</div>
+
+	<div class="senna-loading-bar"></div>
+
+	{literal}
+		<script>
+		'use strict';
+		var app = new senna.App();
+
+		app.setBasePath('/');
+
+		app.addSurfaces(['content']);
+
+		app.addRoutes(new senna.Route(/.*/, senna.HtmlScreen));
+
+		window.destroyPage = window.destroyPage || function() {};
+
+		app.on('startNavigate', function() {
+			try {
+				window.destroyPage();
+			}
+			catch(e) {
+			}
+		});
+		</script>
+	{/literal}
+</body>
+</html>
+{/template}

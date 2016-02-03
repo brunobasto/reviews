@@ -1,0 +1,145 @@
+.controls {
+	margin-top: 15px;
+	padding: 0;
+}
+
+.section-header {
+	.header-bg(@header-height);
+	background-color: @brand-default;
+	padding-bottom: 100px;
+
+	h1, p {
+		color: #FFF;
+	}
+}
+
+.autocomplete {
+	position: absolute;
+}
+
+.sell-container {
+	background-color: #FFF;
+	box-shadow: 0 2px 4px rgba(188,197,204,0.3);
+	margin-top: -103px;
+	padding: 0;
+
+	label {
+		color: #869cad;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	#product_price {
+		text-align: right;
+	}
+
+	.brand-image {
+		background-size: contain;
+		height: 250px;
+		margin: 25px auto;
+		max-width: 230px;
+	}
+
+	.categories .cat-tiles {
+		background-color: transparent;
+
+		.category p {
+			color: #000;
+		}
+
+		h2 {
+			display: none;
+		}
+
+		.page {
+			display: block;
+			min-height: 200px;
+		}
+	}
+
+	.glyphicon {
+		font-size: 17px;
+		margin-top: -5px;
+	}
+
+	.page {
+		display: none;
+		padding: 10px;
+		min-height: 475px;
+
+		&.active {
+			display: block;
+		}
+	}
+
+	.multi-step-progress-bar {
+		border-bottom: 1px solid #dee4e9;
+		margin-bottom: 10px;
+		padding: 20px 34px 11px 34px;
+	}
+
+	.input-group {
+		width: 100%;
+
+		&.textarea {
+			min-height: 250px;
+		}
+	}
+
+	textarea {
+		min-height: 210px;
+	}
+
+	.upload-col {
+		padding-top: 32px;
+	}
+
+	.upload-group {
+		background-image: url(/static/images/camera-upload1.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		margin-bottom: 30px;
+		max-height: 360px;
+		min-height: 210px;
+		overflow-y: auto;
+		text-align: center;
+
+		&.dz-started {
+			background: none;
+			cursor: auto;
+			margin-top: -32px;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.add {
+				display: block;
+				cursor: pointer;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		&.dropzone {
+			border: none;
+			padding-top: 32px;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		.add {
+			display: none;
+		}
+
+		.dz-message {
+			display: none;
+		}
+	}
+}

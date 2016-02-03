@@ -1,0 +1,77 @@
+{namespace employee_reviews}
+
+/**
+ *
+ * Navigation Menu
+ *
+ * @param employees
+ *
+ */
+{template .navigation_menu}
+<nav class="menu">
+	<div class="container">
+		<ul class="main">
+			<li><a href="/"><span>H</span>ome</a></li>
+
+			<li class="has-submenu"><a href="/buy"><span>E</span>mployees<i class="fa fa-chevron-down"></i></a>
+				<ul class="submenu">
+					<li>
+						<a href="/employee/add">Add an employee</a>
+					</li>
+
+					{call employee_reviews.navigation_menu_categories data="all"}
+						{param prefixURL: '/employees' /}
+					{/call}
+				</ul>
+			</li>
+
+			<li class="has-submenu"><a href="javascript:;"><span>R</span>eviews<i class="fa fa-chevron-down"></i></a>
+				<ul class="submenu">
+					<li>
+						<a href="register.html">A</a>
+					</li>
+					<li>
+						<a href="register.html">B</a>
+					</li>
+					<li>
+						<a href="register.html">C</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="hide-sm">
+				<a href="/support"><span>S</span>upport</a>
+			</li>
+			<li class="hide-sm">
+				<a href="/about"><span>A</span>bout <span>U</span>s</a>
+			</li>
+		</ul>
+	</div>
+
+	<form class="search-form" method="get" role="form" autocomplete="off">
+		<div class="container">
+			<div class="form-group">
+				<label class="sr-only" for="search-hd">Search for an employee</label>
+				<input type="text" class="form-control" name="search-hd" id="search-hd" placeholder="Search for an employee.">
+				<button type="submit"><i class="icon-magnifier"></i></button>
+			</div>
+		</div>
+	</form>
+</nav>
+{/template}
+
+/**
+ *
+ * Prints employees menu items
+ *
+ * @param employees
+ * @param prefixURL
+ *
+ */
+{template .navigation_menu_categories}
+	{foreach $employee in $employees}
+		<li>
+			<a href="{$prefixURL}/{$employee.name}">{$employee.label}</a>
+		</li>
+	{/foreach}
+{/template}

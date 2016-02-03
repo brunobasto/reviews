@@ -1,0 +1,46 @@
+{namespace employee_reviews}
+
+/**
+ *
+ * Shows reviews
+ *
+ * @param reviews
+ *
+ */
+{template .reviews}
+<section class="catalog-grid">
+	<div class="container">
+		<h2 class="dark-color">Latest reviews:</h2>
+
+		<div class="row">
+			{foreach $review in $reviews}
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<div class="tile">
+						<div class="badges">
+							<span class="sale">{$review.category}</span>
+						</div>
+
+						<div class="price-label">R$ {$review.price}</div>
+
+						<a href="javascript:;">
+							{if length($review.images) > 0}
+								<div class="product-image" style="background-image: url(/uploads/{$review.images[0]});"></div>
+							{else}
+								<div class="no-image product-image" style="background-image: url(/static/images/common/no-image.png);"></div>
+							{/if}
+
+							<span class="tile-overlay"></span>
+						</a>
+
+						<div class="footer">
+							<a href="javascript:;">{$review.title}</a>
+							<span>por {$review.author}</span>
+							<button class="btn btn-primary">Mais detalhes</button>
+						</div>
+					</div>
+				</div>
+			{/foreach}
+		</div>
+	</div>
+</section>
+{/template}

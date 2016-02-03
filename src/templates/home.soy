@@ -1,0 +1,26 @@
+{namespace employee_reviews}
+
+/**
+ *
+ * Landing Page
+ *
+ */
+{template .home}
+	{call employee_reviews.employees data="all"}
+		{param key="selectable" value="false" /}
+	{/call}
+
+	{call employee_reviews.reviews data="all" /}
+
+	{call employee_reviews.footer data="all" /}
+
+	<script src="/static/bower/jquery-countdown/build/jquery.countdown.js"></script>
+	<script src="/static/bower/jquery-placeholder/jquery.placeholder.js"></script>
+	<script src="/static/bower/jquery-touchswipe/jquery.touchSwipe.js"></script>
+	<script src="/static/bower/jquery-validation/dist/jquery.validate.js"></script>
+	<script src="/static/bower/jquery.stellar/jquery.stellar.js"></script>
+	<script src="/static/bower/kite-carousel/build/globals/carousel-min.js"></script>
+	<script src="/static/bower/owl-carousel/owl-carousel/owl.carousel.js"></script>
+	<script src="/static/bower/iCheck/icheck.js"></script>
+	<script src="/static/scripts/main.js"></script>
+{/template}

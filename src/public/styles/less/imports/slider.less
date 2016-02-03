@@ -1,0 +1,77 @@
+.hero-slider {
+	background-color: #fff;
+
+	.ms-view {
+		background: transparent;
+	}
+
+	.overlay {
+		display:block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100%;
+		z-index: 2;
+		background: url(../img/overlays/overlay-success.png) repeat;
+	}
+
+	h2 {
+		font-size: 40px;
+		line-height: 40px;
+		font-weight: bold;
+	}
+
+	.btn {
+		@media @mobile-land {
+			padding: 8px 12px;
+			span { margin-right: 5px; }
+		}
+	}
+
+	.ms-nav-next,
+	.ms-nav-prev {
+		width: 32px;
+		height: 38px;
+		cursor: pointer;
+		top: 50%;
+		left: 15px;
+		margin-top: -19px;
+		position: absolute;
+		z-index: 5;
+		.opacity(1, 100) !important;
+		.transition(opacity, 0.3s);
+		&:hover { .opacity(.7, 70) !important; }
+		@media @tablet-port {
+			display: none;
+		}
+	}
+
+	.ms-nav-next {
+		right: 15px;
+		left: auto;
+	}
+
+	.ms-nav-next:before, .ms-nav-prev:before {
+		font-family: FontAwesome;
+		color: @brand-default;
+		font-size: 2.25em;
+	}
+
+	.ms-nav-next:before { content: "\f0a9"; }
+	.ms-nav-prev:before { content: "\f0a8"; }
+
+	.ms-bullet {
+		display: inline-block;
+		float: none;
+		width: 12px;
+		height: 12px;
+		margin: 4px;
+		background: #fff;
+		.border-round();
+	}
+
+	.ms-bullet-selected {
+		background: #faab49;
+	}
+}

@@ -1,0 +1,39 @@
+{namespace employee_reviews}
+
+/**
+ *
+ * Categories
+ *
+ * @param employees
+ * @param selectable
+ *
+ */
+{template .employees}
+<section class="cat-tiles">
+	<div class="container">
+		<h2>Employees:</h2>
+
+		<div class="row">
+			{foreach $category in $employees}
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					{if not $selectable}
+						<a class="category" href="/buy/{$category.name}">
+					{else}
+						<label class="category">
+							<input type="radio" name="category" value="{$category.name}" />
+					{/if}
+
+					<div class="category-image" style="background-image: url({$category.image});"></div>
+					<p>{$category.label}</p>
+
+					{if not $selectable}
+						</a>
+					{else}
+						</label>
+					{/if}
+				</div>
+			{/foreach}
+		</div>
+	</div>
+</section>
+{/template}
